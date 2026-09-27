@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WanderLuxe — Bespoke Dream Vacation Designer & Luxury Travel Escapes</title>
+  <title>Dreamscape — Bespoke Dream Vacation Designer & Luxury Travel Escapes</title>
   <meta name="description"
-    content="Design your ultimate dream vacation with WanderLuxe. Select iconic global destinations, customize your bespoke travel tier, add curated luxury experiences, and view real-time personalized itineraries.">
+    content="Design your ultimate dream vacation with Dreamscape. Select iconic global destinations, customize your bespoke travel tier, add curated luxury experiences, and view real-time personalized itineraries.">
   <meta name="keywords"
     content="dream vacation, luxury travel, bespoke itinerary, Bora Bora, Kyoto, Amalfi Coast, Swiss Alps, Serengeti, private villa, travel planner">
 
@@ -21,12 +21,26 @@
 <body>
 
   <!-- ==========================================================================
+       SOOTHING AMBIENT DYNAMIC BACKDROP
+       ========================================================================== -->
+  <div class="ambient-backdrop-container" id="ambient-backdrop-container" aria-hidden="true">
+    <div class="ambient-layer layer-a active" id="ambient-layer-a"></div>
+    <div class="ambient-layer layer-b" id="ambient-layer-b"></div>
+    <div class="ambient-vignette"></div>
+  </div>
+
+  <!-- Ambient Destination Indicator Badge -->
+  <div class="ambient-indicator" id="ambient-indicator">
+    <span class="ambient-pulse"></span>
+    <span class="ambient-text">Atmosphere: <strong id="ambient-dest-name">Bora Bora</strong></span>
+  </div>
+
+  <!-- ==========================================================================
        SITE HEADER & NAVIGATION
        ========================================================================== -->
   <header class="site-header">
     <div class="container nav-container">
       <a href="#" class="brand-logo" id="brand-logo-link">
-        <div class="brand-icon">✦</div>
         <span>DREAM<span class="text-gold">scape</span></span>
       </a>
 
@@ -41,6 +55,7 @@
         <!-- Currency Selector -->
         <div class="currency-select-wrapper">
           <select class="currency-select" id="currency-selector" aria-label="Select Currency">
+            <option value="INR" selected>INR (₹)</option>
             <option value="USD">USD ($)</option>
             <option value="EUR">EUR (€)</option>
             <option value="GBP">GBP (£)</option>
@@ -49,11 +64,6 @@
           </select>
           <span class="currency-arrow">▼</span>
         </div>
-
-        <!-- Theme Toggle (Dark/Light) -->
-        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
-          ☀️
-        </button>
 
         <!-- Wishlist Drawer Trigger -->
         <button class="wishlist-btn" id="open-wishlist-btn" aria-label="Saved Dream Vacations" title="Saved Vacations">
@@ -82,7 +92,7 @@
 
       <div class="container hero-content">
         <div class="hero-eyebrow">
-          <span>✨</span>
+          <span></span>
           <span>Bespoke Luxury Expeditions · 2026 Collection</span>
         </div>
 
@@ -102,6 +112,7 @@
             <label class="filter-label" for="hero-vibe-select">Destination Vibe</label>
             <select class="filter-select" id="hero-vibe-select">
               <option value="all">Any Atmosphere</option>
+              <option value="royal">👑 Royal Regal Heritage</option>
               <option value="tropical">🏝️ Tropical Sanctuary</option>
               <option value="cultural">⛩️ Cultural Heritage</option>
               <option value="romantic">🍷 Riviera Glamour</option>
@@ -147,7 +158,8 @@
         </div>
 
         <!-- Quick Destination Pills -->
-        <div class="hero-destination-pills">
+        <!-- <div class="hero-destination-pills">
+          <button class="hero-dest-pill" data-dest-id="rajasthan">👑 Rajasthan</button>
           <button class="hero-dest-pill" data-dest-id="bora-bora">🏝️ Bora Bora</button>
           <button class="hero-dest-pill" data-dest-id="kyoto">⛩️ Kyoto</button>
           <button class="hero-dest-pill" data-dest-id="amalfi">🍷 Amalfi Coast</button>
@@ -155,7 +167,7 @@
           <button class="hero-dest-pill" data-dest-id="iceland">🌌 Iceland Aurora</button>
           <button class="hero-dest-pill" data-dest-id="serengeti">🦁 Serengeti Safari</button>
         </div>
-      </div>
+      </div> -->
     </section>
 
     <!-- ==========================================================================
@@ -176,12 +188,23 @@
         <div class="destinations-filter-toolbar">
           <div class="vibe-tabs" id="vibe-tabs">
             <button class="vibe-tab active" data-vibe="all">All Sanctuaries</button>
+            <button class="vibe-tab" data-vibe="royal">👑 Royal Heritage</button>
             <button class="vibe-tab" data-vibe="tropical">🏝️ Tropical</button>
             <button class="vibe-tab" data-vibe="cultural">⛩️ Cultural</button>
             <button class="vibe-tab" data-vibe="romantic">🍷 Riviera</button>
             <button class="vibe-tab" data-vibe="alpine">🏔️ Alpine</button>
             <button class="vibe-tab" data-vibe="nordic">🌌 Nordic</button>
             <button class="vibe-tab" data-vibe="safari">🦁 Safari</button>
+          </div>
+
+          <div class="dest-currency-toggle">
+            <span class="dest-currency-label">Currency:</span>
+            <div class="currency-pills-bar">
+              <button type="button" class="curr-pill active" data-currency="INR">₹ INR</button>
+              <button type="button" class="curr-pill" data-currency="USD">$ USD</button>
+              <button type="button" class="curr-pill" data-currency="EUR">€ EUR</button>
+              <button type="button" class="curr-pill" data-currency="GBP">£ GBP</button>
+            </div>
           </div>
 
           <div class="search-box">
@@ -329,6 +352,16 @@
                   id="summary-preview-img">
               </div>
 
+              <div class="summary-currency-switch-row">
+                <span class="summary-currency-title">Pricing Currency:</span>
+                <div class="currency-pills-bar">
+                  <button type="button" class="curr-pill active" data-currency="INR">₹ INR</button>
+                  <button type="button" class="curr-pill" data-currency="USD">$ USD</button>
+                  <button type="button" class="curr-pill" data-currency="EUR">€ EUR</button>
+                  <button type="button" class="curr-pill" data-currency="GBP">£ GBP</button>
+                </div>
+              </div>
+
               <div class="summary-line-items">
                 <div class="summary-row">
                   <span>Selected Plan Tier:</span>
@@ -419,7 +452,7 @@
           <span class="section-label">Voyager Chronicles</span>
           <h2 class="section-title">Memories Forged in Splendor</h2>
           <p class="section-desc">
-            Read what previous voyagers have to say about their custom WanderLuxe escapes.
+            Read what previous voyagers have to say about their custom Dreamscape escapes.
           </p>
         </div>
 
@@ -429,7 +462,7 @@
             <div class="review-stars">★★★★★</div>
             <h4 class="review-headline">"The most celestial escape of our lifetime"</h4>
             <p class="review-quote">
-              "WanderLuxe crafted an itinerary beyond our wildest dreams. Waking up in our overwater villa with canoe
+              "Dreamscape crafted an itinerary beyond our wildest dreams. Waking up in our overwater villa with canoe
               breakfast drifting up to our deck and private helicopter flights over Mount Otemanu was pure perfection."
             </p>
             <div class="review-author-row">
@@ -491,6 +524,25 @@
               </div>
             </div>
           </article>
+
+          <!-- Review 5: Rajasthan -->
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <h4 class="review-headline">"Fit for emperors — pure royal magic on Lake Pichola"</h4>
+            <p class="review-quote">
+              "Gliding across Lake Pichola on the royal barge at sunset while rose petals showered from the palace
+              terrace
+              was mesmerizing. The private sunrise access to Amber Fort and dinner at Rambagh Palace was beyond
+              majestic."
+            </p>
+            <div class="review-author-row">
+              <img src="assets/images/rajasthan.jpg" alt="Countess Eleonora" class="review-avatar">
+              <div>
+                <div class="review-author-name">Countess Eleonora & Prince Maximilian</div>
+                <div class="review-author-meta">Vienna, Austria · Rajasthan (Haute Elegance)</div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -504,21 +556,22 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#" class="brand-logo" style="margin-bottom: 12px; display: inline-flex;">
-            <div class="brand-icon">✦</div>
-            <span>WANDER<span class="text-gold">LUXE</span></span>
+
+            <span>DREAM<span class="text-gold">scape</span></span>
           </a>
           <p>
             The world's premier bespoke luxury travel atelier. Crafting transcendent private voyages across seven
             continents with dedicated 24/7 concierge service.
           </p>
           <div style="margin-top: 18px; font-size: 0.82rem; color: var(--gold-light);">
-            ✦ Member of Virtuoso Ultra-Luxe Alliance · Forbes Travel Guide Recommended
+            Member of Virtuoso Ultra-Luxe Alliance · Forbes Travel Guide Recommended
           </div>
         </div>
 
         <div class="footer-col">
           <h4>Destinations</h4>
           <div class="footer-links">
+            <a href="#destinations">Rajasthan Royal Palaces</a>
             <a href="#destinations">Bora Bora Sanctuary</a>
             <a href="#destinations">Kyoto Heritage Machiya</a>
             <a href="#destinations">Amalfi Coast Cliffside</a>
@@ -534,8 +587,6 @@
             <a href="#planner">Curated Explorer</a>
             <a href="#planner">Signature Luxury</a>
             <a href="#planner">Haute Elegance / Royal</a>
-            <a href="#planner">Private Aviation Access</a>
-            <a href="#planner">Superyacht Charters</a>
           </div>
         </div>
 
@@ -553,7 +604,7 @@
 
       <div class="footer-bottom">
         <div>
-          © 2026 WanderLuxe Bespoke Expeditions Inc. All rights reserved.
+          © 2026 Dreamscape Bespoke Expeditions Inc. All rights reserved.
         </div>
         <div style="display: flex; gap: 24px;">
           <a href="#">Privacy Charter</a>
