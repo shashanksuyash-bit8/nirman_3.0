@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WanderLuxe — Bespoke Dream Vacation Designer & Luxury Travel Escapes</title>
+  <meta name="description"
+    content="Design your ultimate dream vacation with WanderLuxe. Select iconic global destinations, customize your bespoke travel tier, add curated luxury experiences, and view real-time personalized itineraries.">
+  <meta name="keywords"
+    content="dream vacation, luxury travel, bespoke itinerary, Bora Bora, Kyoto, Amalfi Coast, Swiss Alps, Serengeti, private villa, travel planner">
+
+  <!-- Favicon / Apple Touch Icon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20width=%2232%22%20height=%2232%22><text y=%2226%22 font-size=%2224%22>✨</text></svg>">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       SITE HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo" id="brand-logo-link">
+        <div class="brand-icon">✦</div>
+        <span>DREAM<span class="text-gold">scape</span></span>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#destinations" class="nav-link" id="nav-destinations">Destinations</a>
+        <a href="#planner" class="nav-link" id="nav-planner">Travel Planner</a>
+        <a href="#itinerary" class="nav-link" id="nav-itinerary">Itinerary</a>
+        <a href="#reviews" class="nav-link" id="nav-reviews">Reviews</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Currency Selector -->
+        <div class="currency-select-wrapper">
+          <select class="currency-select" id="currency-selector" aria-label="Select Currency">
+            <option value="USD">USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="JPY">JPY (¥)</option>
+            <option value="AUD">AUD (A$)</option>
+          </select>
+          <span class="currency-arrow">▼</span>
+        </div>
+
+        <!-- Theme Toggle (Dark/Light) -->
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+          ☀️
+        </button>
+
+        <!-- Wishlist Drawer Trigger -->
+        <button class="wishlist-btn" id="open-wishlist-btn" aria-label="Saved Dream Vacations" title="Saved Vacations">
+          ♥
+          <span class="wishlist-count-badge" id="wishlist-count-badge">2</span>
+        </button>
+
+        <!-- CTA Button -->
+        <a href="#planner" class="btn btn-primary btn-sm" id="nav-cta-btn">Design My Trip</a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open Mobile Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION: DESIGN YOUR EXTRAORDINARY ESCAPE
+         ========================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="hero-background-backdrop" id="hero-backdrop"></div>
+      <div class="hero-overlay-gradient"></div>
+
+      <div class="container hero-content">
+        <div class="hero-eyebrow">
+          <span>✨</span>
+          <span>Bespoke Luxury Expeditions · 2026 Collection</span>
+        </div>
+
+        <h1 class="hero-title">
+          Design Your Extraordinary Dream Vacation to
+          <span class="hero-rotating-word" id="hero-rotating-word">Bora Bora</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Handpicked private villas, five-star expedition styles, and tailor-made bespoke itineraries designed
+          exclusively for the discerning traveler.
+        </p>
+
+        <!-- Luxury Quick Filter Matcher Widget -->
+        <div class="hero-filter-bar" id="hero-filter-bar">
+          <div class="filter-group">
+            <label class="filter-label" for="hero-vibe-select">Destination Vibe</label>
+            <select class="filter-select" id="hero-vibe-select">
+              <option value="all">Any Atmosphere</option>
+              <option value="tropical">🏝️ Tropical Sanctuary</option>
+              <option value="cultural">⛩️ Cultural Heritage</option>
+              <option value="romantic">🍷 Riviera Glamour</option>
+              <option value="alpine">🏔️ Alpine Haven</option>
+              <option value="nordic">🌌 Celestial Aurora</option>
+              <option value="safari">🦁 Wildlife Odyssey</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label" for="hero-duration-select">Journey Length</label>
+            <select class="filter-select" id="hero-duration-select">
+              <option value="6">6 Days (Quick Escape)</option>
+              <option value="7" selected>7 Days (Signature Week)</option>
+              <option value="8">8 Days (Deep Immersion)</option>
+              <option value="10">10 Days (Grand Tour)</option>
+              <option value="14">14 Days (Ultimate Odyssey)</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label" for="hero-tier-select">Travel Tier</label>
+            <select class="filter-select" id="hero-tier-select">
+              <option value="curated">Curated Explorer ($$$)</option>
+              <option value="signature" selected>Signature Luxury ($$$$)</option>
+              <option value="haute">Haute Elegance / Royal ($$$$$)</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label" for="hero-travelers-quick">Travelers</label>
+            <select class="filter-select" id="hero-travelers-quick">
+              <option value="2">2 Adults (Romantic)</option>
+              <option value="1">1 Adult (Solo Luxury)</option>
+              <option value="4">4 Guests (Family/Friends)</option>
+              <option value="6">6+ Guests (Private Group)</option>
+            </select>
+          </div>
+
+          <button class="btn btn-primary filter-submit-btn" id="hero-filter-btn">
+            Find My Escape →
+          </button>
+        </div>
+
+        <!-- Quick Destination Pills -->
+        <div class="hero-destination-pills">
+          <button class="hero-dest-pill" data-dest-id="bora-bora">🏝️ Bora Bora</button>
+          <button class="hero-dest-pill" data-dest-id="kyoto">⛩️ Kyoto</button>
+          <button class="hero-dest-pill" data-dest-id="amalfi">🍷 Amalfi Coast</button>
+          <button class="hero-dest-pill" data-dest-id="swiss-alps">🏔️ Swiss Alps</button>
+          <button class="hero-dest-pill" data-dest-id="iceland">🌌 Iceland Aurora</button>
+          <button class="hero-dest-pill" data-dest-id="serengeti">🦁 Serengeti Safari</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         DESTINATION SHOWCASE SECTION
+         ========================================================================== -->
+    <section class="destinations-section" id="destinations">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Handpicked Sanctuaries</span>
+          <h2 class="section-title">Explore Iconic Dream Destinations</h2>
+          <p class="section-desc">
+            Each enclave has been meticulously surveyed by our private expedition scouts, ensuring world-class
+            hospitality, unparalleled vistas, and privacy.
+          </p>
+        </div>
+
+        <!-- Filter & Search Toolbar -->
+        <div class="destinations-filter-toolbar">
+          <div class="vibe-tabs" id="vibe-tabs">
+            <button class="vibe-tab active" data-vibe="all">All Sanctuaries</button>
+            <button class="vibe-tab" data-vibe="tropical">🏝️ Tropical</button>
+            <button class="vibe-tab" data-vibe="cultural">⛩️ Cultural</button>
+            <button class="vibe-tab" data-vibe="romantic">🍷 Riviera</button>
+            <button class="vibe-tab" data-vibe="alpine">🏔️ Alpine</button>
+            <button class="vibe-tab" data-vibe="nordic">🌌 Nordic</button>
+            <button class="vibe-tab" data-vibe="safari">🦁 Safari</button>
+          </div>
+
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="dest-search-input"
+              placeholder="Search by destination or keyword...">
+          </div>
+        </div>
+
+        <!-- Dynamic Destination Cards Grid -->
+        <div class="destinations-grid" id="destinations-grid">
+          <!-- Populated dynamically via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         THE DREAM VACATION PLANNER & BUILDER (CORE SECTION)
+         ========================================================================== -->
+    <section class="planner-section" id="planner">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Bespoke Trip Customizer</span>
+          <h2 class="section-title">Design Your Custom Travel Plan</h2>
+          <p class="section-desc">
+            Tailor every facet of your expedition: choose your sanctuary, elevate your service tier, personalize VIP
+            experiences, and watch your live investment calculate in real time.
+          </p>
+        </div>
+
+        <div class="planner-container">
+          <!-- Left Column: Step-by-Step Customizer -->
+          <div class="planner-steps">
+
+            <!-- Step 1: Destination Selection Quick Selector -->
+            <div class="planner-step-card" id="planner-step-1">
+              <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-info">
+                  <h3>Select Your Destination</h3>
+                  <p>Choose the backdrop for your unforgettable journey</p>
+                </div>
+              </div>
+              <div class="dest-selector-slider" id="dest-selector-slider">
+                <!-- Populated dynamically via app.js -->
+              </div>
+            </div>
+
+            <!-- Step 2: Choose Travel Tier / Plan Style -->
+            <div class="planner-step-card" id="planner-step-2">
+              <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-info">
+                  <h3>Choose Travel Tier & Plan Style</h3>
+                  <p>Select the standard of luxury, vehicle privileges, and concierge service</p>
+                </div>
+              </div>
+              <div class="tier-cards-container" id="tier-cards-container">
+                <!-- Populated dynamically via app.js -->
+              </div>
+            </div>
+
+            <!-- Step 3: Experiential Add-ons Multi-Select -->
+            <div class="planner-step-card" id="planner-step-3">
+              <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-info">
+                  <h3>Curate Bespoke Experiences</h3>
+                  <p>Handpick private excursions, culinary masterclasses, and aerial adventures</p>
+                </div>
+              </div>
+              <div class="addons-grid" id="addons-grid">
+                <!-- Populated dynamically via app.js -->
+              </div>
+            </div>
+
+            <!-- Step 4: Trip Logistics & Travelers -->
+            <div class="planner-step-card" id="planner-step-4">
+              <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-info">
+                  <h3>Dates, Duration & Travelers</h3>
+                  <p>Configure party size, travel window, and preferred flight category</p>
+                </div>
+              </div>
+
+              <div class="logistics-grid">
+                <!-- Departure Date -->
+                <div class="form-group">
+                  <label class="form-label" for="logistics-date">Target Departure Date</label>
+                  <input type="date" class="input-control" id="logistics-date">
+                </div>
+
+                <!-- Duration in Days -->
+                <div class="form-group">
+                  <label class="form-label" for="logistics-duration">Trip Duration (Days)</label>
+                  <input type="number" class="input-control" id="logistics-duration" min="4" max="30" value="7">
+                </div>
+
+                <!-- Adults Counter -->
+                <div class="form-group">
+                  <label class="form-label">Adults (Age 13+)</label>
+                  <div class="counter-control">
+                    <button class="counter-btn" id="adults-dec" aria-label="Decrease Adults">−</button>
+                    <span class="counter-value" id="adults-val">2</span>
+                    <button class="counter-btn" id="adults-inc" aria-label="Increase Adults">+</button>
+                  </div>
+                </div>
+
+                <!-- Children Counter -->
+                <div class="form-group">
+                  <label class="form-label">Children (Age 2–12)</label>
+                  <div class="counter-control">
+                    <button class="counter-btn" id="children-dec" aria-label="Decrease Children">−</button>
+                    <span class="counter-value" id="children-val">0</span>
+                    <button class="counter-btn" id="children-inc" aria-label="Increase Children">+</button>
+                  </div>
+                </div>
+
+                <!-- Flight Preference -->
+                <div class="form-group" style="grid-column: 1 / -1;">
+                  <label class="form-label" for="logistics-flight-class">Aviation & Transit Class</label>
+                  <select class="input-control" id="logistics-flight-class">
+                    <option value="land_only">Land Only (Arrange your own flights)</option>
+                    <option value="business" selected>Commercial Business Class (+VIP Fast-Track)</option>
+                    <option value="first">International First Class (+Lounge & Butler Escort)</option>
+                    <option value="private">Private Jet Charter Access (+Direct Runway Boarding)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Sticky Live Trip Summary & Price Breakdown -->
+          <aside class="planner-sidebar-wrapper">
+            <div class="trip-summary-card" id="trip-summary-card">
+              <div class="summary-header">
+                <div class="summary-tag">Dream Itinerary Summary</div>
+                <h3 class="summary-destination-name" id="summary-dest-name">Bora Bora, French Polynesia</h3>
+              </div>
+
+              <div class="summary-preview-img-box">
+                <img src="assets/images/bora-bora.jpg" alt="Selected Destination" class="summary-preview-img"
+                  id="summary-preview-img">
+              </div>
+
+              <div class="summary-line-items">
+                <div class="summary-row">
+                  <span>Selected Plan Tier:</span>
+                  <strong style="color: var(--gold-light);" id="summary-tier-name">Signature Luxury</strong>
+                </div>
+                <div class="summary-row">
+                  <span>Duration:</span>
+                  <span id="summary-duration">7 Days / 6 Nights</span>
+                </div>
+                <div class="summary-row">
+                  <span>Travelers:</span>
+                  <span id="summary-travelers">2 Adults</span>
+                </div>
+                <div class="summary-row">
+                  <span>Aviation Transit:</span>
+                  <span id="summary-flight" style="font-size: 0.82rem;">Business Class</span>
+                </div>
+                <div class="summary-row">
+                  <span>Curated Add-ons:</span>
+                  <span id="summary-addons-count">2 Selected</span>
+                </div>
+
+                <hr style="border: none; border-top: 1px dashed rgba(226,184,116,0.18); margin: 6px 0;">
+
+                <div class="summary-row">
+                  <span>Base Expedition & Lodging:</span>
+                  <span id="summary-base-val">$15,660</span>
+                </div>
+                <div class="summary-row">
+                  <span>Add-on Experiences:</span>
+                  <span id="summary-addons-val">$2,660</span>
+                </div>
+
+                <div class="summary-row total-row">
+                  <span>Estimated Total:</span>
+                  <span class="summary-total-price" id="summary-total-val">$18,320</span>
+                </div>
+              </div>
+
+              <div class="summary-per-person-note" id="summary-per-person-val">
+                $9,160 avg. / traveler
+              </div>
+
+              <div class="summary-actions">
+                <button class="btn btn-primary btn-block btn-lg" id="summary-book-btn">
+                  Reserve Consultation / Lock Price →
+                </button>
+                <button class="btn btn-secondary btn-block btn-sm" id="summary-save-wishlist-btn">
+                  ♥ Save Itinerary to Wishlist
+                </button>
+              </div>
+
+              <div
+                style="margin-top: 20px; font-size: 0.74rem; color: var(--text-dim); text-align: center; line-height: 1.4;">
+                🛡️ 100% Bespoke Flexibility · No Hidden Fees · Virtuoso Partner Privileges
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         DYNAMIC DAY-BY-DAY ITINERARY EXPLORER
+         ========================================================================== -->
+    <section class="itinerary-section" id="itinerary">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Your Day-by-Day Journey</span>
+          <h2 class="section-title" id="itinerary-dest-title">Bora Bora Signature Experience</h2>
+          <p class="section-desc" id="itinerary-dest-desc">
+            Explore the hand-crafted day-by-day journey curated specifically for your dream escape.
+          </p>
+        </div>
+
+        <div class="itinerary-timeline" id="itinerary-timeline">
+          <!-- Populated dynamically via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CUSTOMER REVIEWS & STORIES
+         ========================================================================== -->
+    <section class="reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Voyager Chronicles</span>
+          <h2 class="section-title">Memories Forged in Splendor</h2>
+          <p class="section-desc">
+            Read what previous voyagers have to say about their custom WanderLuxe escapes.
+          </p>
+        </div>
+
+        <div class="reviews-grid" id="reviews-grid">
+          <!-- Review 1 -->
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <h4 class="review-headline">"The most celestial escape of our lifetime"</h4>
+            <p class="review-quote">
+              "WanderLuxe crafted an itinerary beyond our wildest dreams. Waking up in our overwater villa with canoe
+              breakfast drifting up to our deck and private helicopter flights over Mount Otemanu was pure perfection."
+            </p>
+            <div class="review-author-row">
+              <img src="assets/images/bora-bora.jpg" alt="Julian Vance" class="review-avatar">
+              <div>
+                <div class="review-author-name">Lord Julian & Lady Evelyn Vance</div>
+                <div class="review-author-meta">London, UK · Bora Bora (Haute Elegance)</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Review 2 -->
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <h4 class="review-headline">"Unmatched cultural depth and absolute serenity"</h4>
+            <p class="review-quote">
+              "The after-hours private viewing of Gion's ancient temple accompanied by a master historian was
+              transcendent. Everything flowed seamlessly, from the first-class Shinkansen cars to the riverside onsen."
+            </p>
+            <div class="review-author-row">
+              <img src="assets/images/kyoto.jpg" alt="Marcus Chen" class="review-avatar">
+              <div>
+                <div class="review-author-name">Marcus & Dr. Mei Lin Chen</div>
+                <div class="review-author-meta">San Francisco, CA · Kyoto (Signature Luxury)</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Review 3 -->
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <h4 class="review-headline">"Pure Italian coastal romance done flawlessly"</h4>
+            <p class="review-quote">
+              "The private Riva yacht day trip to Capri and the front-row cliffside Michelin reservations made us feel
+              like royalty. The live price calculator made tailoring our add-ons an effortless pleasure."
+            </p>
+            <div class="review-author-row">
+              <img src="assets/images/amalfi.jpg" alt="Sofia Rostova" class="review-avatar">
+              <div>
+                <div class="review-author-name">Sofia Rostova & Matteo Moretti</div>
+                <div class="review-author-meta">Milan, Italy · Amalfi Coast (Signature Luxury)</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Review 4 -->
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <h4 class="review-headline">"Matterhorn views from a steaming heated hot tub"</h4>
+            <p class="review-quote">
+              "Sitting in our outdoor hot tub on the chalet balcony as the Matterhorn turned rose gold at dusk is etched
+              into our hearts forever. The private chef's raclette was Michelin caliber."
+            </p>
+            <div class="review-author-row">
+              <img src="assets/images/swiss-alps.jpg" alt="Alexander Bergström" class="review-avatar">
+              <div>
+                <div class="review-author-name">Alexander & Ingrid Bergström</div>
+                <div class="review-author-meta">Stockholm, Sweden · Zermatt (Haute Elegance)</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="brand-logo" style="margin-bottom: 12px; display: inline-flex;">
+            <div class="brand-icon">✦</div>
+            <span>WANDER<span class="text-gold">LUXE</span></span>
+          </a>
+          <p>
+            The world's premier bespoke luxury travel atelier. Crafting transcendent private voyages across seven
+            continents with dedicated 24/7 concierge service.
+          </p>
+          <div style="margin-top: 18px; font-size: 0.82rem; color: var(--gold-light);">
+            ✦ Member of Virtuoso Ultra-Luxe Alliance · Forbes Travel Guide Recommended
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Destinations</h4>
+          <div class="footer-links">
+            <a href="#destinations">Bora Bora Sanctuary</a>
+            <a href="#destinations">Kyoto Heritage Machiya</a>
+            <a href="#destinations">Amalfi Coast Cliffside</a>
+            <a href="#destinations">Zermatt Alpine Chalets</a>
+            <a href="#destinations">Iceland Celestial Aurora</a>
+            <a href="#destinations">Serengeti Safari Wilderness</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Expedition Tiers</h4>
+          <div class="footer-links">
+            <a href="#planner">Curated Explorer</a>
+            <a href="#planner">Signature Luxury</a>
+            <a href="#planner">Haute Elegance / Royal</a>
+            <a href="#planner">Private Aviation Access</a>
+            <a href="#planner">Superyacht Charters</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Concierge Atelier</h4>
+          <div class="footer-links">
+            <a href="#planner">Private Consultations</a>
+            <a href="#planner">Custom Family Expeditions</a>
+            <a href="#planner">Honeymoon & Anniversaries</a>
+            <a href="#reviews">Voyager Chronicles</a>
+            <a href="#hero">24/7 Global Travel Liaison</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 WanderLuxe Bespoke Expeditions Inc. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 24px;">
+          <a href="#">Privacy Charter</a>
+          <a href="#">Terms of Voyage</a>
+          <a href="#">Sustainable Stewardship</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS & DRAWERS
+       ========================================================================== -->
+
+  <!-- Destination Detail Modal -->
+  <div class="modal-backdrop" id="dest-detail-modal" role="dialog" aria-modal="true" aria-label="Destination Details">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      <div id="dest-detail-content">
+        <!-- Content populated via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Concierge Modal -->
+  <div class="modal-backdrop" id="booking-modal" role="dialog" aria-modal="true" aria-label="Reserve Consultation">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      <div id="booking-modal-body">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <span class="section-label">Bespoke Concierge Request</span>
+          <h2 style="font-family: var(--font-serif); font-size: 1.85rem; color: var(--text-primary); margin-top: 6px;">
+            Reserve Your Dream Vacation
+          </h2>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); max-width: 500px; margin: 6px auto 0 auto;">
+            Our senior travel designer will contact you within 2 hours to confirm luxury suite availability, refine your
+            daily itinerary, and lock in private pricing.
+          </p>
+        </div>
+
+        <!-- Live Trip Recap Banner -->
+        <div id="booking-summary-recap">
+          <!-- Populated via app.js -->
+        </div>
+
+        <!-- Concierge Form -->
+        <form id="concierge-booking-form">
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 16px;">
+            <div class="form-group">
+              <label class="form-label" for="guest-first-name">First Name *</label>
+              <input type="text" class="input-control" id="guest-first-name" placeholder="Lord / Dr. / First Name"
+                required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="guest-last-name">Last Name *</label>
+              <input type="text" class="input-control" id="guest-last-name" placeholder="Last Name" required>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 16px;">
+            <div class="form-group">
+              <label class="form-label" for="guest-email">Email Address *</label>
+              <input type="email" class="input-control" id="guest-email" placeholder="voyager@domain.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="guest-phone">Phone / WhatsApp *</label>
+              <input type="tel" class="input-control" id="guest-phone" placeholder="+1 (555) 019-2834" required>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 24px;">
+            <label class="form-label" for="guest-notes">Special Requests & Preferences</label>
+            <textarea class="input-control" id="guest-notes" rows="3"
+              placeholder="Dietary preferences, champagne brand, anniversary celebration, helicopter landing wishes, private security, etc."></textarea>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+            <div style="font-size: 0.78rem; color: var(--text-dim); max-width: 260px;">
+              🔒 Strictly confidential · Encrypted transmission · Virtuoso travel guarantee
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" id="submit-booking-btn">
+              Submit Reservation Request →
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wishlist Slide-Out Drawer -->
+  <div class="drawer-backdrop" id="wishlist-backdrop"></div>
+  <aside class="drawer-panel" id="wishlist-panel" aria-label="Saved Dream Vacations">
+    <div class="drawer-header">
+      <div>
+        <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-primary);">Saved Dream Escapes
+        </h3>
+        <p style="font-size: 0.8rem; color: var(--text-muted);">Your personalized shortlist of sanctuaries</p>
+      </div>
+      <button class="modal-close-btn" id="close-wishlist-btn" style="position: static;"
+        aria-label="Close Wishlist">✕</button>
+    </div>
+
+    <div class="drawer-items-list" id="wishlist-items-container">
+      <!-- Populated dynamically via app.js -->
+    </div>
+
+    <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(226,184,116,0.15);">
+      <a href="#planner" class="btn btn-primary btn-block"
+        onclick="document.getElementById('wishlist-backdrop').classList.remove('active'); document.getElementById('wishlist-panel').classList.remove('active');">
+        Continue Designing in Planner →
+      </a>
+    </div>
+  </aside>
+
+  <!-- Confetti Celebration Canvas -->
+  <canvas id="celebration-canvas"></canvas>
+
+  <!-- Scripts -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+
+</html>
